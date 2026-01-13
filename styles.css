@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #f0f4f8;
+  font-size: 14px;
+}
+
+/* Top bar */
+.topbar {
+  background: #007aff;
+  border-bottom: 1px solid #005bb5;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.topbar button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 10px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.topbar button.active {
+  border-bottom: 2px solid #ffd700;
+  font-weight: bold;
+}
+
+/* Container */
+.container {
+  max-width: 480px;
+  margin: 20px auto;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background: #007aff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005bb5;
+}
+
+/* Danh sách */
+#list .item {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #e6f0ff;
+}
+
+.item strong {
+  font-size: 14px;
+  color: #003366;
+}
+
+.phone,
+.debt,
+.shell {
+  font-size: 13px;
+  color: #333;
+}
+
+/* Xóa */
+.delete {
+  margin-top: 6px;
+  font-size: 12px;
+  padding: 4px 6px;
+  background: #ff4c4c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete:hover {
+  background: #cc0000;
+}
+
+/* Tổng nợ */
+#totalDebt,
+#totalShell {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #d35400;
+}
+
+.hidden {
+  display: none;
+}

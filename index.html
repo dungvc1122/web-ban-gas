@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Khách Hàng</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ===== Top bar ===== -->
+    <div class="topbar">
+        <button id="btnAdd" class="active">Thêm khách</button>
+        <button id="btnList">Danh sách</button>
+    </div>
+
+    <!-- ===== Thêm khách ===== -->
+    <div class="container" id="addView">
+        <h2>Thêm khách</h2>
+        <input id="name" placeholder="Tên khách">
+        <input id="phone" placeholder="Số điện thoại">
+        <input id="debt" type="number" placeholder="Thiếu nợ (VNĐ)">
+        <input id="shellDebt" type="number" placeholder="Thiếu nợ vỏ (số bình)">
+        <button onclick="addCustomer()">Lưu khách</button>
+    </div>
+
+    <!-- ===== Danh sách khách ===== -->
+    <div class="container hidden" id="listView">
+        <h2>Danh sách khách</h2>
+        <div id="totalDebt">Tổng nợ: 0 VNĐ</div>
+        <div id="totalShell">Tổng thiếu vỏ: 0 bình</div>
+        <div id="list"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
