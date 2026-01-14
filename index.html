@@ -2,40 +2,105 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Khách Hàng</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Bán Hàng Gas</title>
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <!-- ===== Top bar ===== -->
     <div class="topbar">
-        <button id="btnAdd" class="active">Thêm khách</button>
+        <button id="btnStore" class="active">Bán hàng</button>
+        <button id="btnAdd">Thêm khách</button>
         <button id="btnList">Danh sách</button>
     </div>
 
-    <!-- ===== Thêm khách ===== -->
-    <div class="container" id="addView">
-        <h2>Thêm khách</h2>
-        <input id="name" placeholder="Tên khách">
-        <input id="phone" placeholder="Số điện thoại">
-        <input id="debt" type="number" placeholder="Thiếu nợ (VNĐ)">
-        <input id="shellDebt" type="number" placeholder="Thiếu nợ vỏ (số bình)">
-        <button onclick="addCustomer()">Lưu khách</button>
+    <div class="container" id="storeView">
+        <div class="store-layout">
+
+            <div class="products">
+                <div class="product-card-cao">
+                    <img src="https://gassaigonvina.com/upload/product/4-2628.png" alt="Gas 13kg Petrolimex">
+                    <div class="product-info">
+                        <h3>Bình gas 13kg Petrolimex</h3>
+                        <p>450,000 VNĐ</p>
+                    </div>
+                    <button onclick="addToCart('Bình gas 13kg Petrolimex', 450000)">Thêm</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://mother.com.vn/wp-content/uploads/2024/10/1-removebg-preview-280x280.png"
+                        alt="Bếp mini">
+                    <div class="product-info">
+                        <h3>Bếp Ga Mini 2 Chiều NaMilux NH-2915PS</h3>
+                        <p>220,000 VNĐ</p>
+                    </div>
+                    <button onclick="addToCart('Bếp Ga Mini 2 Chiều NaMilux NH-2915PS', 220000)">Thêm</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://cdn0597.cdn4s.com/thumbs/san-pham/van%20gas/99f7ebdac5ef05b15cfe_thumb_350.jpg"
+                        alt="Van as an toàn tự động shell Ấn Độ">
+                    <div class="product-info">
+                        <h3>Van as an toàn tự động shell Ấn Độ</h3>
+                        <p>350,000 VNĐ</p>
+                    </div>
+                    <button onclick="addToCart('Van as an toàn tự động shell Ấn Độ', 350000)">Thêm</button>
+                </div>
+            </div>
+
+            <div class="summary">
+
+                <h3>Doanh thu hôm nay</h3>
+                <p>Tổng thu: <strong id="todayTotal" style="color: #d35400; font-size: 18px;">0</strong> VNĐ</p>
+
+                <div id="todayItems"
+                    style="font-size: 14px; color: #333; margin-bottom: 20px; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #eee;">
+                </div>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 2px dashed #ccc;">
+
+                <h2 style="margin-top: 0;">Khách đang mua</h2>
+                <div id="cartList" style="min-height: 50px; margin-bottom: 10px;">
+                    <i style="color: #999; font-size: 13px;">(Giỏ hàng trống)</i>
+                </div>
+
+                <div class="total">
+                    <span>Tổng tiền:</span>
+
+                    <span class="total-price">
+                        <strong id="cartTotal">0</strong> VNĐ
+                    </span>
+                </div>
+
+                <button class="checkout" onclick="checkout()">Thanh toán & Lưu</button>
+            </div>
+        </div>
     </div>
 
-    <!-- ===== Danh sách khách ===== -->
+    <div class="container1 hidden" id="addView">
+        <h2>Thêm khách hàng mới</h2>
+        <input id="name" placeholder="Tên khách hàng">
+        <input id="phone" placeholder="Số điện thoại">
+        <input id="debt" type="number" placeholder="Số tiền nợ (VNĐ)">
+        <input id="shellDebt" type="number" placeholder="Số vỏ còn nợ (bình)">
+        <button onclick="addCustomer()">Lưu khách hàng</button>
+    </div>
+
     <div class="container hidden" id="listView">
-        <h2>Danh sách khách</h2>
-        <div id="totalDebt">Tổng nợ: 0 VNĐ</div>
-        <div id="totalShell">Tổng thiếu vỏ: 0 bình</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h2>Danh sách nợ</h2>
+            <div style="text-align: right;">
+                <div id="totalDebt">Tổng nợ: 0 VNĐ</div>
+                <div id="totalShell">Tổng vỏ: 0 bình</div>
+            </div>
+        </div>
+
         <div id="list"></div>
     </div>
 
-    <script src="app.js"></script>
 </body>
 
 </html>
